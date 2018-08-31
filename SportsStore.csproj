@@ -7,8 +7,26 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore">
+      <Version>2.1.2</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <None Remove=".gitignore" />
+    <None Remove="SportsStore.Tests\**" />
+    <None Remove="README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="SportsStore.Tests\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Remove="SportsStore.Tests\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="SportsStore.Tests\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="SportsStore.Tests\obj\project.assets.json" />
+    <_ContentIncludedByDefault Remove="SportsStore.Tests\obj\project.packagespec.json" />
   </ItemGroup>
 </Project>
