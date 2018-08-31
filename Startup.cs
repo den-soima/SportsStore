@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Extensions.Internal;
 using Microsoft.Extensions.Configuration;
@@ -45,6 +46,11 @@ namespace SportsStore
             app.UseStaticFiles();
             app.UseMvc(routes =>
             {
+                routes.MapRoute(
+                    name:"pagination",
+                    template:"Product/Page{productPage}",
+                    defaults: new { Controller = "Product", Action = "List"});
+                
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Product}/{action=List}/{id?}");
