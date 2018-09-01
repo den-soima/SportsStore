@@ -1,0 +1,13 @@
+@model Product
+
+<div class="card text-black border-primary mb-1">
+    <div class="card-header font-weight-bold">
+        <span>@Model.Name</span>
+        <span class="badge badge-primary float-xl-right">&dollar; @Model.Price.ToString()</span>
+    </div>
+    <div class="card-body">
+        <div class="card-text">
+            @Model.Description
+        </div>
+    </div>
+</div>
