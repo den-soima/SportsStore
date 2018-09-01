@@ -1,0 +1,35 @@
+{
+  "dependencies": {},
+  "name": "sportsstore",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {
+    "autoprefixer": "^9.1.3",
+    "bootstrap": "^4.1.3",
+    "css-loader": "^1.0.0",
+    "exports-loader": "^0.7.0",
+    "jquery": "^3.3.1",
+    "node-sass": "^4.9.3",
+    "popper.js": "^1.14.4",
+    "postcss-loader": "^3.0.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.0",
+    "webpack": "^4.17.1",
+    "webpack-cli": "^3.1.0"
+  },
+  "scripts": {
+    "build": "webpack --mode production",
+    "dev": "webpack --mode development"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gitdso/SportsStore.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gitdso/SportsStore/issues"
+  },
+  "homepage": "https://github.com/gitdso/SportsStore#readme",
+  "description": ""
+}
