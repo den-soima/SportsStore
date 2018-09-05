@@ -1,0 +1,21 @@
+@model Dictionary<string,int>
+
+<div class="list-group">
+
+
+    @foreach (var item in Model)
+    {
+        <a class="list-group-item list-group-item-action
+                @(item.Key == ViewBag.SelectedCategory ? "active" : "")"
+           asp-action="List"
+           asp-controller="Product"
+           asp-route-category="@item.Key"
+           asp-route-productPage="1">
+            @item.Key
+            <span class="badge badge-primary badge-pill float-right
+                @(item.Key == ViewBag.SelectedCategory ? "badge-light" : "")">
+                @item.Value.ToString()</span>
+        </a>
+    }
+  
+</div>

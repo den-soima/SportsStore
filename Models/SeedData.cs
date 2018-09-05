@@ -9,48 +9,85 @@ namespace SportsStore.Models
     {
         public static void EnsurePopulated(IApplicationBuilder applicationBuilder)
         {
-            ApplicationDbContext context = applicationBuilder.ApplicationServices.GetRequiredService<ApplicationDbContext>();
+            ApplicationDbContext context =
+                applicationBuilder.ApplicationServices.GetRequiredService<ApplicationDbContext>();
             context.Database.Migrate();
 
             if (!context.Products.Any())
             {
                 context.Products.AddRange(
-                    new Product {
+                    new Product
+                    {
                         Name = "Kayak", Description = "A boat for one person",
-                        Category = "Watersports", Price = 275 },
-                    new Product {
+                        Category = "Watersports", Price = 275
+                    },
+                    new Product
+                    {
                         Name = "Lifejacket",
                         Description = "Protective and fashionable",
-                        Category = "Watersports", Price = 48.95m },
-                    new Product {
+                        Category = "Watersports", Price = 48.95m
+                    },
+                    new Product
+                    {
                         Name = "Soccer Ball",
                         Description = "FIFA-approved size and weight",
-                        Category = "Soccer", Price = 19.50m },
-                    new Product {
+                        Category = "Soccer", Price = 19.50m
+                    },
+                    new Product
+                    {
                         Name = "Corner Flags",
                         Description = "Give your playing field a professional touch",
-                        Category = "Soccer", Price = 34.95m },
-                    new Product {
+                        Category = "Soccer", Price = 34.95m
+                    },
+                    new Product
+                    {
                         Name = "Stadium",
                         Description = "Flat-packed 35,000-seat stadium",
-                        Category = "Soccer", Price = 79500 },
-                    new Product {
+                        Category = "Soccer", Price = 79500
+                    },
+                    new Product
+                    {
                         Name = "Thinking Cap",
                         Description = "Improve brain efficiency by 75%",
-                        Category = "Chess", Price = 16 },
-                    new Product {
+                        Category = "Chess", Price = 16
+                    },
+                    new Product
+                    {
                         Name = "Unsteady Chair",
                         Description = "Secretly give your opponent a disadvantage",
-                        Category = "Chess", Price = 29.95m },
-                    new Product {
+                        Category = "Chess", Price = 29.95m
+                    },
+                    new Product
+                    {
                         Name = "Human Chess Board",
                         Description = "A fun game for the family",
-                        Category = "Chess", Price = 75 },
-                    new Product {
+                        Category = "Chess", Price = 75
+                    },
+                    new Product
+                    {
                         Name = "Bling-Bling King",
                         Description = "Gold-plated, diamond-studded King",
                         Category = "Chess", Price = 1200
+                    },
+                    new Product
+                    {
+                        Name = "Boxing pants",
+                        Description = "Pants for boxers",
+                        Category = "Box", Price = 25
+                    },
+                    new Product
+                    {
+                        Name = "Boxing gloves",
+                        Description = "Gloves for juniors",
+                        Category = "Box", Price = 45
+                    },
+                    new Product
+                    {
+                        Name = "Boxing kappa",
+                        Description = "Teeth protector",
+                        Category = "Box", Price = 5
                     });
+
                 context.SaveChanges();
             }
         }

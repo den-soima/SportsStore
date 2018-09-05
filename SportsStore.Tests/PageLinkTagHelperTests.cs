@@ -68,7 +68,7 @@ namespace SportsStore.Tests
 
             ProductController controller = new ProductController(mock.Object) {PageSize = 3};
 
-            ProductListViewModel result = controller.List(2).ViewData.Model as ProductListViewModel;
+            ProductListViewModel result = controller.List(null, 2).ViewData.Model as ProductListViewModel;
 
             PagingInfo info = result.PagingInfo;
 

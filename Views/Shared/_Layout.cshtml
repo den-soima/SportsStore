@@ -3,16 +3,23 @@
 <html>
 <head>
     <title>Sports Store</title>
-    
+
 </head>
 <body>
 <div class="container-fluid">
-    <div class="navbar navbar-expand-xl navbar-dark bg-dark">
-        <a href="#">SportsStore</a>
+    <div class="row navbar navbar-expand-xl navbar-dark bg-dark">
+
+        <div class="col-xl-10">
+            <a class="navbar-brand" asp-controller="Product" asp-action="List">SportsStore</a>
+        </div>
+        <div class="col-xl-2 text-xl-right">
+            @await Component.InvokeAsync("CartSummary")
+        </div>
+
     </div>
     <div class="row m-1 p-1">
         <div id="categories" class="col-xl-3">
-            
+            @await Component.InvokeAsync("NavigationMenu")
         </div>
         <div class="col-xl-9">
             @RenderBody()
@@ -20,6 +27,6 @@
     </div>
 </div>
 <script src="@Url.Content("~/dist/bundle.js")"></script>
-@RenderSection("wwwroot",false/*required*/)
+@RenderSection("wwwroot", false /*required*/)
 </body>
 </html>

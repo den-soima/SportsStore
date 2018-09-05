@@ -1,13 +1,23 @@
+@using SportsStore.Infrastructure
 @model Product
 
-<div class="card text-black border-primary mb-1">
+<div class="card text-dark border-primary mb-1">
     <div class="card-header font-weight-bold">
         <span>@Model.Name</span>
         <span class="badge badge-primary float-xl-right">&dollar; @Model.Price.ToString()</span>
     </div>
     <div class="card-body">
-        <div class="card-text">
-            @Model.Description
-        </div>
+
+
+        <form id="@Model.ProductID" asp-action="AddToCart" asp-controller="Cart" method="post">
+            <input type="hidden" asp-for="ProductID"/>
+            <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()"/>
+            <div class="card-text">
+                @Model.Description
+                <button type="submit" class="btn btn-success btn-sm float-right">Add to cart</button>
+            </div>
+
+        </form>
+
     </div>
 </div>

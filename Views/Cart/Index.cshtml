@@ -1,0 +1,41 @@
+@model CartIndexViewModel
+
+<h2>Your Cart</h2>
+
+<table class="table table-hover table-striped">
+    <thead>
+    <tr>
+        <th scope="col">Items</th>
+        <th scope="col">Quanity</th>
+        <th scope="col">Price</th>
+        <th scope="col" class="text-lg-right">Subtotal</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var line in Model.Cart.Lines)
+    {
+        <tr>
+            <td>@line.Product.Name</td>
+            <td>@line.Quantity.ToString()</td>
+            <td>@line.Product.Price.ToString()</td>
+            <td class="text-right">@((@line.Product.Price * line.Quantity).ToString())</td>
+            <td>
+                <form asp-action="RemoveFromCart" method="post">
+                    <input type="hidden" name="productId" value="@line.Product.ProductID.ToString()"/>
+                    <input type="hidden" name="returnUrl" value="@Model.ReturnUrl"/>
+                    <button type="submit" class="btn btn-danger btn-sm float-right">Remove</button>
+                </form>
+            </td>
+        </tr>
+    }
+    <tr>
+        <td></td>
+        <td></td>
+        <td class="text-lg-right">Total:</td>
+        <td class="text-lg-right">@Model.Cart.ComputeTotalValues.ToString()</td>
+    </tr>
+    </tbody>
+</table>
+
+
+<a href="@Model.ReturnUrl" class="btn btn-primary btn-lg btn-block active" role="button" aria-pressed="true">Continue shopping</a>
